@@ -12,19 +12,22 @@ void print(vector<int> a)
 
 void merge(vector<int> &a, vector<int> &b)
 {
-    int i = 0, j = 0;
-    while (i < a.size() && j < b.size())
+    int i = a.size() - 1, j = 0;
+    while (i >= 0 && j < b.size())
     {
         if (a[i] > b[j])
         {
             swap(a[i], b[j]);
             j++;
+            i--;
         }
         else
         {
-            i++;
+            break;
         }
     }
+    sort(a.begin(), a.end());
+    sort(b.begin(), b.end());
 
     print(a);
     print(b);
